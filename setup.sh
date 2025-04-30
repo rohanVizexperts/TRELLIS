@@ -71,6 +71,18 @@ if [ "$NEW_ENV" = true ] ; then
     conda create -n trellis python=3.10
     conda activate trellis
     conda install pytorch==2.4.0 torchvision==0.19.0 pytorch-cuda=11.8 -c pytorch -c nvidia
+    
+    # Set up CUDA_HOME environment variable
+    mkdir -p $CONDA_PREFIX/etc/conda/activate.d
+    echo "export CUDA_HOME=$CONDA_PREFIX" > $CONDA_PREFIX/etc/conda/activate.d/env_vars.sh
+    chmod +x $CONDA_PREFIX/etc/conda/activate.d/env_vars.sh
+    
+    # Install CUDA toolkit
+    conda install -c "nvidia/label/cuda-11.8.0" cuda-toolkit
+
+    # Initialize and update Git submodules
+    git submodule init
+    git submodule update
 fi
 
 # Get system information
