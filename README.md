@@ -44,6 +44,28 @@
   - [Conda](https://docs.anaconda.com/miniconda/install/#quick-command-line-install) is recommended for managing dependencies.  
   - Python version 3.8 or higher is required. 
 
+### Quick Start Guide
+
+1. Install Miniconda:
+   ```sh
+   wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+   bash Miniconda3-latest-Linux-x86_64.sh
+   ```
+   Follow the prompts to complete the installation. After installation, restart your terminal or run:
+   ```sh
+   source ~/.bashrc
+   ```
+
+2. Run setup.sh without flash attention:
+   ```sh
+   . ./setup.sh --new-env --basic --xformers --diffoctreerast --spconv --mipgaussian --kaolin --nvdiffrast
+   ```
+
+3. Run the minimal example:
+   ```sh
+   python minimal_example.py
+   ```
+
 ### Installation Steps
 1. Clone the repo:
     ```sh
@@ -211,7 +233,7 @@ We provide **TRELLIS-500K**, a large-scale dataset containing 500K 3D assets cur
 <!-- Training -->
 ## 🏋️‍♂️ Training
 
-TRELLIS’s training framework is organized to provide a flexible and modular approach to building and fine-tuning large-scale 3D generation models. The training code is centered around `train.py` and is structured into several directories to clearly separate dataset handling, model components, training logic, and visualization utilities.
+TRELLIS's training framework is organized to provide a flexible and modular approach to building and fine-tuning large-scale 3D generation models. The training code is centered around `train.py` and is structured into several directories to clearly separate dataset handling, model components, training logic, and visualization utilities.
 
 ### Code Structure
 
